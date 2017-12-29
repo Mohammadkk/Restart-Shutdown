@@ -6,8 +6,5 @@
         xmlns:local="clr-namespace:WPFRestartShutdown"
         mc:Ignorable="d"
         Title="MainWindow" Height="258.16" Width="105.784">
-    <Grid x:Name="grdWindow">
-        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="0,33,0,0"/>
-
-    </Grid>
+    <Grid x:Name="grdWindow"/>
 </Window>

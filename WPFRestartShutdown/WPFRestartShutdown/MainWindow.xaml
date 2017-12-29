@@ -1,12 +1,13 @@
-﻿<Window x:Class="WPFRestartShutdown.MainWindow"
+﻿<Window x:Name="MainWindow1" x:Class="WPFRestartShutdown.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFRestartShutdown"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="MainWindow" Height="258.16" Width="105.784">
+    <Grid x:Name="grdWindow">
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="0,33,0,0"/>
+
     </Grid>
 </Window>

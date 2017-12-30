@@ -5,12 +5,124 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFRestartShutdown"
         mc:Ignorable="d"
-        Title="MainWindow" Height="282" Width="102" AllowsTransparency="True" WindowStyle="None" Background="#4C000000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" BorderBrush="#FFD2FF0B" MinWidth="100" MinHeight="280" Foreground="#FFD2FF0B" BorderThickness="1">
-    <Grid x:Name="grdWindow">
-        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Width="80" Height="80" Margin="0,10,0,0" BorderThickness="0" BorderBrush="{x:Null}">
-            <Button.Background>
-                <ImageBrush/>
-            </Button.Background>
-        </Button>
-    </Grid>
+        Title="MainWindow" Height="302" Width="102" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Foreground="{x:Null}" BorderThickness="1" Padding="0,0,0,10">
+    <Window.Resources>
+        <Storyboard x:Key="OnMouseEnter1">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="btnRestart">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="95"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="btnRestart">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="95"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="btnRestart">
+                <EasingThicknessKeyFrame KeyTime="0:0:0.3" Value="2.5,2.5,0,0"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnMouseLeave1">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="btnRestart">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="90"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="btnRestart">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="90"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="btnRestart">
+                <EasingThicknessKeyFrame KeyTime="0:0:0.3" Value="5,5,0,0"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnMouseEnter2">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="btnShutdown">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="95"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="btnShutdown">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="95"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="btnShutdown">
+                <EasingThicknessKeyFrame KeyTime="0:0:0.3" Value="2.5,102.5,0,0"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnMouseLeave2">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="btnShutdown">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="90"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="btnShutdown">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="90"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="btnShutdown">
+                <EasingThicknessKeyFrame KeyTime="0:0:0.3" Value="5,105,0,0"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnMouseEnter3">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="btnCancel">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnMouseLeave3">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="btnCancel">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnClick1">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="btnCancel">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="3600"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="MainWindow1">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.01"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="MainWindow1">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="302"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="btnRestart">
+            <BeginStoryboard x:Name="OnMouseEnter1_BeginStoryboard" Storyboard="{StaticResource OnMouseEnter1}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="btnRestart">
+            <BeginStoryboard x:Name="OnMouseLeave1_BeginStoryboard" Storyboard="{StaticResource OnMouseLeave1}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="btnShutdown">
+            <BeginStoryboard x:Name="OnMouseEnter2_BeginStoryboard" Storyboard="{StaticResource OnMouseEnter2}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="btnShutdown">
+            <BeginStoryboard x:Name="OnMouseLeave2_BeginStoryboard" Storyboard="{StaticResource OnMouseLeave2}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="btnCancel">
+            <BeginStoryboard x:Name="OnMouseEnter3_BeginStoryboard" Storyboard="{StaticResource OnMouseEnter3}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="btnCancel">
+            <BeginStoryboard x:Name="OnMouseLeave3_BeginStoryboard" Storyboard="{StaticResource OnMouseLeave3}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnCancel">
+            <BeginStoryboard x:Name="OnClick1_BeginStoryboard" Storyboard="{StaticResource OnClick1}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Border x:Name="border" Background="#7F000000" CornerRadius="5" Padding="0" Margin="0">
+        <Grid x:Name="grdWindow" MouseLeftButtonDown="grdWindow_MouseLeftButtonDown" Background="#02000000" Margin="0,5,0,0">
+            <Button x:Name="btnRestart" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Margin="5,5,0,0" BorderThickness="0" BorderBrush="{x:Null}" Style="{DynamicResource ButtonStyle1}" Click="btnRestart_Click_1">
+                <Button.Background>
+                    <ImageBrush Stretch="Uniform" ImageSource="images/Button_Restart.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="btnShutdown" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Margin="5,105,0,0" BorderThickness="0" BorderBrush="{x:Null}" Style="{DynamicResource ButtonStyle1}" Click="btnShutdown_Click_1">
+                <Button.Background>
+                    <ImageBrush Stretch="Uniform" ImageSource="images/Button_Shutdown.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="btnCancel" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Margin="5,200,0,0" BorderThickness="0" BorderBrush="{x:Null}" Style="{DynamicResource ButtonStyle2}" RenderTransformOrigin="0.5,0.5" Click="btnCancel_Click_1">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+                <Button.Background>
+                    <ImageBrush Stretch="Uniform" ImageSource="images/Button_Cancel.png"/>
+                </Button.Background>
+            </Button>
+        </Grid>
+    </Border>
 </Window>

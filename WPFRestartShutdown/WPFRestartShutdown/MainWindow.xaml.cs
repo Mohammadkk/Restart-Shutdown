@@ -24,5 +24,46 @@ namespace WPFRestartShutdown
         {
             InitializeComponent();
         }
+
+        private void btnRestart_Click_1(object sender, RoutedEventArgs e)
+        {
+            // Reboot
+            System.Diagnostics.Process.Start("ShutDown", "/r /t 0");
+            Application.Current.Shutdown();
+        }
+
+        private void btnShutdown_Click_1(object sender, RoutedEventArgs e)
+        {
+            // Shutdown
+            System.Diagnostics.Process.Start("ShutDown", "/s /t 0");
+            Application.Current.Shutdown();
+        }
+
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void btnCancel_Click_1(object sender, RoutedEventArgs e)
+        {
+            // Exit
+            System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 1000);
+            dispatcherTimer.Start();
+        }
+
+        private void grdWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ButtonState == MouseButtonState.Pressed)
+            {
+                grdWindow.Cursor = Cursors.SizeAll;
+                this.DragMove();
+            }
+            if (e.ButtonState == MouseButtonState.Released)
+            {
+                grdWindow.Cursor = Cursors.Arrow;
+            }
+        }
     }
 }
